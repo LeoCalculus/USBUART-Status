@@ -32,6 +32,7 @@ void init(void){
     vofa_report.tail[1] = 0x00;
     vofa_report.tail[2] = 0x80;
     vofa_report.tail[3] = 0x7f;
+    packet.is_self_color_red = 3; // inital unknown state
 }
 
 void step(const float dt){
@@ -74,7 +75,13 @@ void step(const float dt){
         g = 0;
         b = 128;
     }
+    if (packet.is_self_color_red == 3){
+        r = 128;
+        g = 0;
+        b = 128;
+    }
 
+    //ws2812_pure(128, 0, 128);
     ws2812_pure(r, g, b);
     ws2812_refresh();
 }

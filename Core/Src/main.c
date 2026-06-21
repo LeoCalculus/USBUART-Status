@@ -96,7 +96,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  ws2812_pure(100, 20, 0);
+  ws2812_pure(128, 0, 128);
   ws2812_refresh();
   init();
   // start dma receive
